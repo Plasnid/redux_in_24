@@ -1,0 +1,26 @@
+{
+  "name": "redux_in_24",
+  "version": "1.0.0",
+  "description": "redux in 24 lines demo",
+  "main": "index.js",
+  "scripts": {
+    "lite": "lite-server",
+    "start": "npm run lite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Plasnid/redux_in_24.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Plasnid/redux_in_24/issues"
+  },
+  "homepage": "https://github.com/Plasnid/redux_in_24#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  },
+  "dependencies": {
+    "redux": "^4.0.4"
+  }
+}
