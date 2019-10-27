@@ -5,7 +5,8 @@ const initialState = { count: 0 };
 //the actions that can happen for our element
 const actions = {
     increment: { type: 'INCREMENT' },
-    decrement: { type: 'DECREMENT' }
+    decrement: { type: 'DECREMENT' },
+    status: {type:'STATUS'}
 };
 //the reducer, which interacts with the state and the action
 const countReducer = (state = initialState, action) => {
@@ -19,6 +20,8 @@ const countReducer = (state = initialState, action) => {
             return {
                 count: state.count - 1
             };
+        
+        case actions.status.type:
 
         default:
             return state;
@@ -39,18 +42,15 @@ store.subscribe(() =>{
     updateScreen(store.getState());
 });
 
-function initializeButtons(){
+function initializeApp(counterStore){
+    counterStore.dispatch(actions.status);
     let incBtn = document.querySelector("#inc");
     incBtn.addEventListener("click", (e) =>{
-        store.dispatch(actions.increment);
+        counterStore.dispatch(actions.increment);
     });
     let decBtn = document.querySelector("#dec");
     decBtn.addEventListener("click", (e) =>{
-        store.dispatch(actions.decrement);
+        counterStore.dispatch(actions.decrement);
     });
 }
-initializeButtons();
-//we dispatch from the store
-store.dispatch(actions.increment);// logs { count: 1 }
-store.dispatch(actions.increment);// logs { count: 2 }
-store.dispatch(actions.decrement);// logs { count: 1 }
+initializeApp(store);
